@@ -14,10 +14,11 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/Gymworkout", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Gymworkout", {
 useNewUrlParser: true,
 useFindAndModify:false,
 useUnifiedTopology: true,
+useCreateIndex: true
 });
 
 
